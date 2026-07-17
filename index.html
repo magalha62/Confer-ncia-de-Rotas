@@ -1,18 +1,7 @@
-exports.handler = async function () {
-  const url = process.env.SUPABASE_URL || '';
-  const key = process.env.SUPABASE_PUBLISHABLE_KEY || '';
-
-  if (!url || !key) {
-    return {
-      statusCode: 503,
-      headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' },
-      body: JSON.stringify({ error: 'Supabase não configurado no Netlify.' })
-    };
-  }
-
-  return {
-    statusCode: 200,
-    headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' },
-    body: JSON.stringify({ url, key })
-  };
+// Alternativa para deploy manual por arrastar e soltar no Netlify.
+// A URL e a Publishable Key são públicas por definição.
+// Nunca coloque secret key ou service_role neste arquivo.
+window.APP_CONFIG = {
+  supabaseUrl: 'https://bntnhtnwelviwlzhrttn.supabase.co',
+  supabasePublishableKey: 'sb_publishable_gqrECGpAxOn1-XHnTe_D-A_aToekHFy'
 };
